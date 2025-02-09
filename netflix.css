@@ -208,6 +208,32 @@ body
     position: relative;
     left: 20px;
 }
+.hover {
+    background-color: red;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.hover:hover {
+    background-color: rgb(200, 0, 0);
+}
+
+.faq-button {
+    background-color: rgb(36, 36, 36);
+    transition: background-color 0.4s ease-in-out;
+}
+
+.faq-button:hover {
+    background-color: rgb(74, 74, 74);
+}
+
+.scrollable-films {
+    transition: transform 0.2s ease-in-out;
+}
+
+.scrollable-films:hover {
+    transform: scale(1.09);
+}
+
 #scrollable-film-suggestions
 {
     height: 40vh;
