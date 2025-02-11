@@ -211,12 +211,29 @@ body
 .hover:hover {
     background-color: rgb(169, 0, 0);
 }
+#films-container
+{
+    display: flex;
+    align-items: center;
+}
 .scrollable-films:hover {
     transform: scale(1.09);
 }
-
+.swipe-btn
+{
+    height: 160px;
+    width: 30px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: rgba(84, 84, 84, 0.164);
+    border: 0;
+    color: white;
+    font-size: 28px;
+    transition: opacity 0.1s ease-in-out;
+}
 #scrollable-film-suggestions
 {
+    transition: margin 0.3s ease-in-out; 
     height: 40vh;
     width: 75vw;
     margin-top: 10px;
