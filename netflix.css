@@ -366,8 +366,7 @@ body
     gap: 10px;
     margin-top: 20px;
 }
-.faq-button
-{
+.faq-button {
     width: 80vw;
     height: 85px;
     background-color: rgb(36, 36, 36);
@@ -376,9 +375,16 @@ body
     padding-right: 24px;
     display: flex;
     align-items: center;
-    border: 0px ;
+    justify-content: space-between;
+    border: 0px;
     font-size: 23px;
     transition: background-color 0.4s ease-in-out;
+    cursor: pointer;
+}
+.plus-icon
+{
+    font-size: 50px;
+    font-weight: lighter;
 }
 #enter-email
 {

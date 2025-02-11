@@ -67,5 +67,25 @@ function check_scroll_condition() {
     }
 }
 
+function addEvent_to_plus()
+{
+    const btns=document.querySelectorAll('.plus-icon');
+    btns.forEach((btn) => {
+        btn.addEventListener('click',plus_cross_event)
+    });
+}
+function plus_cross_event(e)
+{
+    let clicked_btn=e.target;
+    if(clicked_btn.style.transform==='rotate(45deg)')
+    {
+        clicked_btn.style.transform='rotate(0deg)'
+    }
+    else
+    {
+        clicked_btn.style.transform='rotate(45deg)'
+    }
+}
+addEvent_to_plus();
 parent_scroll.addEventListener('scroll', check_scroll_condition);
 check_scroll_condition();
