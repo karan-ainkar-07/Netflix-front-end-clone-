@@ -10,11 +10,11 @@ function add_swipe(direction) {
 
         if (direction === 'left') {
             parent.insertBefore(Btn, scrollableFilms);
-            scrollableFilms.style.marginLeft = '40px'; // Add margin smoothly
+            scrollableFilms.style.marginLeft = '40px';
             swipe_to_left(Btn);
         } else {
             scrollableFilms.after(Btn);
-            scrollableFilms.style.marginRight = '40px'; // Add margin smoothly
+            scrollableFilms.style.marginRight = '40px';
             swipe_to_right(Btn);
         }
     }
@@ -25,15 +25,12 @@ function del_swipe(direction) {
     const scrollableFilms = document.querySelector('#scrollable-film-suggestions');
 
     if (Btn) {
+        Btn.remove();
         if (direction === 'left') {
-            scrollableFilms.style.marginLeft = '0px'; // Smoothly adjust position
+            scrollableFilms.style.marginLeft = '0px';
         } else {
             scrollableFilms.style.marginRight = '0px';
         }
-
-        setTimeout(() => {
-            Btn.remove(); // Instantly remove after margin animation
-        }, 300); // Match CSS transition time
     }
 }
 
