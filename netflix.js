@@ -67,25 +67,83 @@ function check_scroll_condition() {
     }
 }
 
-function addEvent_to_plus()
+function addEvent_to_faq()
 {
-    const btns=document.querySelectorAll('.plus-icon');
+    const btns=document.querySelectorAll('.faq-button');
     btns.forEach((btn) => {
         btn.addEventListener('click',plus_cross_event)
     });
 }
+let another_active=''
 function plus_cross_event(e)
 {
-    let clicked_btn=e.target;
+    let clicked_btn=e.currentTarget.children[0];
     if(clicked_btn.style.transform==='rotate(45deg)')
     {
         clicked_btn.style.transform='rotate(0deg)'
+        del_content_faq(e.currentTarget);
+        another_active='';
     }
     else
     {
-        clicked_btn.style.transform='rotate(45deg)'
+        is_another_active(another_active);
+        clicked_btn.style.transform='rotate(45deg)';
+        add_content_faq(e.currentTarget);
+        another_active=e.currentTarget.id;
     }
 }
-addEvent_to_plus();
+function is_another_active(id)
+{
+    let element=document.getElementById(id);
+    if(element)
+    {
+        element.children[0].style.transform='rotate(0deg)';
+        del_content_faq(element);
+    }
+}
+function add_content_faq(sibling)
+{
+    const content=document.createElement('div');
+    content.classList.add('faq-content');
+    content.innerText=add_text_to_content(sibling.id);
+    sibling.after(content);
+}
+function del_content_faq(sibling)
+{
+    let content=sibling.nextElementSibling;
+    if(content.classList.contains('faq-content'))
+    {
+        content.remove();
+    }
+}
+function add_text_to_content(id)
+{
+    let return_val;
+    switch(id)
+    {
+        case 'faq1':
+            return_val='Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices. You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There\'s always something new to discover, and new TV shows and movies are added every week!';
+            break;
+        case 'faq2':
+            return_val='Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.';
+            break;
+        case 'faq3':
+            return_val='Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.';
+            break;
+        case 'faq4':
+            return_val='Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.';
+            break;
+        case 'faq5':
+            return_val='Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.';
+            break;
+        case 'faq6':
+            return_val='The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.';
+            break;
+        default:
+            return_val='cancel';
+    }
+    return return_val;
+}
+addEvent_to_faq();
 parent_scroll.addEventListener('scroll', check_scroll_condition);
 check_scroll_condition();
